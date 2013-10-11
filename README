@@ -1,0 +1,25 @@
+Requisitos:
+- Raspberry Pi
+- Python
+- Flask
+- WSGI
+
+Si se quiere ver de modo remoto el estado de la RPi se puede usar servicios como No-ip.
+
+Para instalar flask:
+
+  sudo pip install Flask
+
+Para iniciar la APP una vez instalado flask desde la carpeta /var/www crear la carpeta flask y luego:
+
+  python hello.py
+
+para cambiar el puerto se puede modificar la linea:
+  
+  app.run(host='0.0.0.0')
+
+  por
+
+  app.run(host='0.0.0.0', port='SU PUERTO')
+
+la ip 0.0.0.0 permite que sea visto desde cualquier equipo de la red.
