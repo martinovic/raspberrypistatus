@@ -1,0 +1,173 @@
+<html>
+    <meta http-equiv="refresh" content="240" >
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/static/favicon.ico" />
+    <STYLE TYPE="text/css">
+    <!--
+    BODY
+        {
+            color:white;
+            background-color:black;
+            font-family:sans-serif;
+            width: 1024px;
+        }
+    TABLE
+        {
+            font-family:sans-serif;
+            font-size: 12px;
+        }
+    A:link{color:white}
+    A:visited{color:yellow}
+    -->
+    </STYLE>
+    <body>
+        <h1>
+        <img src='/static/Raspberry_Pi_Logo_svg.png' width='50px'
+            align='absmiddle'>&nbsp;Raspberry PI</h1>
+        <!-- cuerpo de datos -->
+            <table>
+                <tr valign='top'>
+                    <td>
+                        <img src='/static/thumbs-up-icon.png' width='30px'>
+                        <hr>
+                        <B>Uptime</B><BR>
+                        <table style='margin-left:20px;' width='400px'>
+                            <tr>
+                                <td>
+                                    Años: {{ anio }}
+                                </td><td>
+                                Dias: {{ dias }}
+                                </td><td>
+                                {{ horas }}:{{ minutos }}:{{ segundos }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <img src='/static/arm_icon.png' width='30px'>
+                        <hr>
+                        <B>Frecuencia</B><BR>
+                        <table style='margin-left:20px;' width='400px'>
+                            <tr>
+                                <td>Actual: {{ actual }} Mhz</td>
+                                <td>Minima: {{ minima }} Mhz</td>
+                            </tr>
+                            <tr>
+                                <td>Maxima:{{ maxima }} Mhz</td>
+                                <td>Modo: {{ governor }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr valign='top'>
+                    <td>
+                        <img src='/static/Ethernet-Ethernet-off-icon.png' width='30px'>
+                        <hr>
+                        <B>Placa de red</B><BR>
+                        <table style='margin-left:20px;' width='400px'>
+                            <tr>
+                                <td>TX: {{ tx }} Mb </td>
+                                <td>RX: {{ rx }} Mb</td>
+                                <td>Total: {{ total }} Mb</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <img src='/static/micro_sd.png' width='30px'>
+                        <hr>
+                        <B>Unidades de almacenamiento</B><BR>
+                        <table style='margin-left:20px;' width='600px'>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Tamaño</th>
+                                <th>Punto de montaje</th>
+                            </tr>
+                            {% for post in posts %}
+                                <tr>
+                                <td>{{post.NAME}}</td>
+                                <td>{{post.TYPE}}</td>
+                                <td>{{post.SIZE}}</td>
+                                <td>{{post.MOUNTPOINT}}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr valign='top'>
+                    <td>
+                        <img src='/static/cloud_storage.png' width='30px'>
+                        <hr>
+                        <B>Particiones y uso</B><BR>
+                        <table style='margin-left:20px;' width='600px'>
+                            <tr>
+                                <th>S.ficheros</th>
+                                <th>Tipo</th>
+                                <th>1K-bloques</th>
+                                <th>Usados</th>
+                                <th>Disponibles</th>
+                                <th>Uso %</th>
+                                <th>Montado en</th>
+                            </tr>
+                            {% for store in storage %}
+                                <tr>
+                                {% for st in store %}
+                                    <td>{{st}}</td>
+                                {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                    <td>
+                        <img src='/static/internal-memory-icon.png' width='30px'>
+                        <hr>
+                        <B>Uso de memoria</B><BR>
+                        <table style='margin-left:20px;' width='600px'>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Total</th>
+                                <th>Usado</th>
+                                <th>Libre</th>
+                                <th>Compartido</th>
+                                <th>Buffer</th>
+                                <th>Cache</th>
+                            </tr>
+                            {% for mem in memory %}
+                                <tr>
+                                {% for m in mem %}
+                                    <td>{{m}}</td>
+                                {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                <tr>
+                <tr valign='top'>
+                    <td>
+                        <img src='/static/Temperature-icon.png' width='30px'>
+                        <hr>
+                        <B>Temperatura</B><BR>
+                        <table style='margin-left:20px;' width='600px'>
+                            <tr>
+                                <td>
+                                {{temper}} °C
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div align='center'>
+
+            Desarrollado por <a href='mailto:marcelo.martinovic@gmail.com'>Marcelo Martinovic</A> &copy; 2013<br>
+            <img src='/static/Raspberry_Pi_Logo_svg.png' width='20px' align='absmiddle'>
+            <a href="http://www.raspberrypi.org/">Raspberry.org</a>&nbsp;&nbsp;
+            <img src='/static/python.png' width='20px' align='absmiddle'>
+            <a href="http://www.python.org/">Python.org</a>&nbsp;&nbsp;
+            <img src='/static/flask.jpg' width='20px' align='absmiddle'>
+            <a href="http://flask.pocoo.org//">Flask.pocoo.org</a>
+
+            </div>
+
+    </body>
+</html>
