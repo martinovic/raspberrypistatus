@@ -8,7 +8,7 @@
             color:white;
             background-color:black;
             font-family:sans-serif;
-            width: 1024px;
+            width: 99%;
         }
     TABLE
         {
@@ -17,12 +17,114 @@
         }
     A:link{color:white}
     A:visited{color:yellow}
+
+    /* START NAV MENU */
+    nav {
+      background-color:#7c0c2b;
+      height:30px;
+    }
+
+
+    nav ul {
+      font-family: Arial, Verdana;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li {
+      display: block;
+      position: relative;
+      float: left;
+
+    }
+
+    nav li ul {
+      display: none;
+    }
+
+    nav ul li a {
+      display: block;
+      text-decoration: none;
+      padding: 7px 10px 1px 10px;
+      background: #7c0c2b;
+      color: #ffffff;
+      margin-left: 1px;
+      white-space: nowrap;
+      height:20px; /* Width and height of top-level nav items */
+      width:90px;
+      text-align:center;
+
+    }
+
+    nav ul li a:hover {
+      background: #bd1143;
+    }
+
+    nav li:hover ul {
+      display: block;
+      position: absolute;
+      height:22px;
+    }
+
+    nav li:hover li {
+      float: none;
+      font-size: 11px;
+
+    }
+
+    nav li:hover a {
+      background: #3A464F;
+      height:22px; /* Height of lower-level nav items is shorter than main level */
+    }
+
+    nav li:hover li a:hover {
+      background: #bd1143;
+    }
+
+    nav ul li ul li a {
+        text-align:left; /* Top-level items are centered, but nested list items are left-aligned */
+    }
+
+    /* END NAV MENU */
     -->
     </STYLE>
     <body>
         <h1>
         <img src='/static/Raspberry_Pi_Logo_svg.png' width='50px'
             align='absmiddle'>&nbsp;Raspberry PI</h1>
+        <nav>
+            <ul>
+              <li><a href="/">
+              <img src='static/Very-Basic-Home-icon.png'
+                  width='20px' align='absmiddle'>&nbsp;Principal</a></li>
+              <li><a href="#">
+              <img src='static/graph_chart_analytics-512.png'
+                  width='20px' align='absmiddle'>&nbsp;Graficos</a>
+                <ul>
+                    <li><a href="/graf">Temperatura</a></li>
+                </ul>
+              </li>
+              <li><a href="#">
+              <img src='static/business_contact.png'
+                  width='20px' align='absmiddle'>&nbsp;Acerca de...</a>
+                <ul>
+                    <li><a href="/crew">
+                    <img src='static/Sections-of-Website-About-icon.png'
+                  width='20px' align='absmiddle'>&nbsp;Quien soy...</a></li>
+                </ul>
+              </li>
+
+              <li><a href="#">
+              <img src='static/business_contact.png'
+                  width='20px' align='absmiddle'>Contacto</a>
+                <ul>
+                    <li><a href="/email">Via Email</a></li>
+                </ul>
+              </li>
+            </ul>
+        </nav>
         <!-- cuerpo de datos -->
             <table>
                 <tr valign='top'>
