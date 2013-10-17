@@ -157,6 +157,12 @@ def graf(name=None):
 
     return render_template('googlegraf.html', datos=dataList)
 
+
+@app.route('/crew')
+def crew(name=None):
+    ''''''
+    return render_template('aboutme.html')
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0')
