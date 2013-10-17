@@ -54,7 +54,6 @@ while True:
     rx, tx, total = eth0TxRx()
     tiempoAhora = datetime.datetime.now()
     fechaHora = tiempoAhora.strftime("%y-%m-%d %H:%M:%S")
-    print(fechaHora)
     sql = ("INSERT INTO temperaturas (temp, rx, tx, total, " +
         "fecha) VALUES (%.2f, %s, %s, %s, '%s')" %
         (t, rx, tx, total, fechaHora))
