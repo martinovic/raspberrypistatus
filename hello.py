@@ -146,13 +146,13 @@ def graftemp(name=None):
     con = None
     con = lite.connect('/home/pi/getDataRPi/datosRPi.db')
     cur = con.cursor()
-    sql = ("SELECT * FROM temperaturas")
+    sql = ("SELECT temp, fecha FROM temperaturas")
     cur.execute(sql)
     data = cur.fetchall()
     dataList = []
     for row in data:
         dictData = {}
-        dictData = {'fecha': row[2], 'temp': row[1]}
+        dictData = {'fecha': row[1], 'temp': row[0]}
         dataList.append(dictData)
 
     return render_template('googlegraftemp.html', datos=dataList)
