@@ -3,19 +3,27 @@ Requisitos:
 - Python
 - Flask
 - WSGI
+- sqlite3
 
 Si se quiere ver de modo remoto el estado de la RPi se puede usar servicios como No-ip.
 
 Para instalar flask:
 
-  sudo pip install Flask
+#> sudo pip install Flask
 
-Para iniciar la APP una vez instalado flask desde la carpeta /var/www crear la carpeta flask y luego:
+Para inicar la recopilacion de datos se debe ejecutar:
 
-  python hello.py
+#> sudo python getDataRPi.py &
+
+esto inicia a guardar datos de temperatura y trafico de la eth0.
+
+Para iniciar la APP una vez instalado flask desde la carpeta /var/www
+crear la carpeta flask y luego:
+
+#> python hello.py
 
 para cambiar el puerto se puede modificar la linea:
-  
+
   app.run(host='0.0.0.0')
 
   por
