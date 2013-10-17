@@ -139,8 +139,8 @@ def hello(name=None):
         memory=memory)
 
 
-@app.route('/graf')
-def graf(name=None):
+@app.route('/graftemp')
+def graftemp(name=None):
     '''
     '''
     con = None
@@ -155,13 +155,33 @@ def graf(name=None):
         dictData = {'fecha': row[2], 'temp': row[1]}
         dataList.append(dictData)
 
-    return render_template('googlegraf.html', datos=dataList)
+    return render_template('googlegraftemp.html', datos=dataList)
 
 
-@app.route('/crew')
-def crew(name=None):
-    ''''''
-    return render_template('aboutme.html')
+@app.route('/grafeth0')
+def grafeth0(name=None):
+    '''
+    '''
+    con = None
+    con = lite.connect('/home/pi/getDataRPi/datosRPi.db')
+    cur = con.cursor()
+    sql = ("SELECT rx, tx, total, fecha FROM temperaturas")
+    cur.execute(sql)
+    data = cur.fetchall()
+    dataList = []
+    for row in data:
+        dictData = {}
+        dictData = {'fecha': row[3], 'rx': row[0],
+            'tx': row[1], 'total': row[2]}
+        dataList.append(dictData)
+
+    return render_template('googlegrafeth0.html', datos=dataList)
+
+
+#@app.route('/crew')
+#def crew(name=None):
+    #''''''
+    #return render_template('aboutme.html')
 
 if __name__ == "__main__":
     app.debug = True

@@ -7,14 +7,15 @@
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Fecha', 'Temperatura'],
+          ['Fecha', 'RX', 'TX', 'Total'],
           {% for post in datos %}
-              ['{{post.fecha}}',  {{post.temp}}],
+              ['{{post.fecha}}', {{post.rx}},
+                  {{post.tx}}, {{post.total}}],
           {% endfor %}
         ]);
 
         var options = {
-          title: 'Temperarura RPi',
+          title: 'Actividad RX/TX Eth0 RPi',
           backgroundColor: 'black',
           color: ['white'],
           hAxis: {textStyle: {color: 'white'}},
@@ -130,24 +131,15 @@
               <img src='static/graph_chart_analytics-512.png'
                   width='20px' align='absmiddle'>&nbsp;Graficos</a>
                 <ul>
-                    <li><a href="/graf">Temperatura</a></li>
+                    <li><a href="/graftemp">Temperatura</a></li>
+                    <li><a href="/grafeth0">RX/TX Eth0</a></li>
                 </ul>
               </li>
-              <li><a href="#">
-              <img src='static/business_contact.png'
-                  width='20px' align='absmiddle'>&nbsp;Acerca de...</a>
-                <ul>
-                    <li><a href="/crew">
-                    <img src='static/Sections-of-Website-About-icon.png'
-                  width='20px' align='absmiddle'>&nbsp;Quien soy...</a></li>
-                </ul>
-              </li>
-
               <li><a href="#">
               <img src='static/business_contact.png'
                   width='20px' align='absmiddle'>Contacto</a>
                 <ul>
-                    <li><a href="/email">Via Email</a></li>
+                    <li><a href="mailto:marcelo.martinovic@gmail.com">Via Email</a></li>
                 </ul>
               </li>
             </ul>
